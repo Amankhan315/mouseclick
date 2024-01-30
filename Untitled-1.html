@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: wheat;
+            gap: 10px;
+            position: relative;
+            cursor: none;
+            overflow: hidden;
+            border: 1px solid;
+        }
+
+        .visi {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            position: absolute;
+            background-color: white;
+            transition: 0.1s;
+            border: 1px solid;
+
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            color: black;
+        }
+
+        .childbox {
+            height: 15vh;
+            width: 28%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid;
+        }
+
+        .box {
+            height: 30px;
+            width: 30px;
+            border-radius: 50px;
+            background-color: white;
+            border: 1px solid;
+
+        }
+
+        .childbox .box:nth-child(2) {
+            height: 40px;
+            width: 40px;
+        }
+
+        .childbox .box:nth-child(3) {
+            height: 60px;
+            width: 60px;
+        }
+
+        .childbox .box:nth-child(4) {
+            height: 80px;
+            width: 80px;
+        }
+
+       
+      
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Click & Draw</h1>
+        <div class="childbox">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+      
+    </div>
+
+    <script>
+        let main1 = document.getElementsByClassName("main")[0];
+        let heading = document.querySelector(".main h1");
+        let box1 = document.querySelectorAll(".box");
+       
+
+        let move = document.createElement("div");
+
+        move.classList.add("visi");
+        main1.appendChild(move);
+
+        move.style.display = "none"
+
+
+       
+
+
+
+
+
+        main1.addEventListener("mousemove", function (e) {
+
+            move.style.display = "block"
+
+            let x = e.clientX
+            let y = e.clientY
+            move.style.left = `${x + 5}px`
+            move.style.top = `${y - 20}px`
+
+
+            box1[0].addEventListener("click", function () {
+
+                move.style.height = "30px"
+                move.style.width = "30px"
+                move.style.backgroundColor = "green"
+
+            })
+            box1[1].addEventListener("click", function () {
+
+
+                move.style.height = "40px"
+                move.style.width = "40px"
+                move.style.backgroundColor = "red"
+            })
+            box1[2].addEventListener("click", function () {
+
+                move.style.height = "60px"
+                move.style.width = "60px"
+                move.style.backgroundColor = "blue"
+            })
+            box1[3].addEventListener("click", function () {
+
+                move.style.height = "80px"
+                move.style.width = "80px"
+                move.style.backgroundColor = "black"
+            })
+
+        })
+    </script>
+</body>
+
+</html>
